@@ -48,17 +48,18 @@
                     filter: filter ? filter : undefined
                 },
                 success: function(data) {
-                    console.log(data)
                     $('#dynamic_content').html(data);
                 }
             })
         }
-        let valueFilter = '0';
+        var valueFilter = '0';
 
         load_data(1,'',valueFilter);
         $('#search_box').keyup(function(e) {
-            var query = e.currentTarget.value;            
+            var query = e.currentTarget.value;   
+            console.log(valueFilter);         
             load_data(1,query, valueFilter);
+
         })
         $(document).on('click', '.page-link', function(e) {
             let page = e.currentTarget.getAttribute('data-page_number');
@@ -68,9 +69,10 @@
 
         $("#filter").on('change', function() {
             let value = $(this).val();
+            valueFilter = value;
             let query = $("#search_box").val();
-            console.log(valueFilter + ' : '+query);
-            load_data(1, query, value ? value : valueFilter);
+            console.log(value + ' : '+query);
+            load_data(1, query, valueFilter);
         })
     });
 </script>

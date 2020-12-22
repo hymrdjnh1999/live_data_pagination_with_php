@@ -29,7 +29,7 @@ if ($_POST['query'] != '') {
       $query .= 'WHERE cust_name LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" ';
       break;
   }
-  echo $query;
+  // echo $query;
 
   // $query .= '
   // WHERE cust_name LIKE "%' . str_replace(' ', '%', $_POST['query']) . '%" 
@@ -90,15 +90,15 @@ $page_link = '';
 
 //echo $total_links;
 
-if ($total_links > 4) {
-  if ($page < 4) {
-    for ($count = 1; $count < 5; $count++) {
+if ($total_links > 5) {
+  if ($page < 5) {
+    for ($count = 1; $count <=5; $count++) {
       $page_array[] = $count;
     }
     $page_array[] = '...';
     $page_array[] = $total_links;
   } else {
-    $end_limit = $total_links - 4;
+    $end_limit = $total_links - 5;
     if ($page > $end_limit) {
       $page_array[] = 1;
       $page_array[] = '...';
